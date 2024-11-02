@@ -11,11 +11,13 @@ export default function ShoppingListCreateForm() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<ShoppingListCreateInput>();
 
   const onSubmit: SubmitHandler<ShoppingListCreateInput> = (data) => {
     dispatch(createList({ name: data.name }));
+    reset({ name: "" });
   };
 
   return (
